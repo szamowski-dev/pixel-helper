@@ -1,5 +1,7 @@
+(() => {
 const events = [];
 const seen = new Set();
+let lastPixelCount = -1;
 
 function parsePixelRequest(resource) {
     let url;
@@ -15,6 +17,7 @@ function parsePixelRequest(resource) {
     let provider;
     let id;
     let name;
+    let kind = "event";
 
     if ((host === "www.google-analytics.com" || host.endsWith(".google-analytics.com")) && ["/g/collect", "/collect", "/j/collect"].includes(path)) {
         provider = "Google tag";
@@ -28,14 +31,18 @@ function parsePixelRequest(resource) {
         provider = "Meta Pixel";
         id = query.get("id");
         name = query.get("ev");
-    } else if ((host === "analytics.twitter.com" || host === "analytics.x.com" || host === "t.co") && (path === "/i/adsct" || path === "/1/i/adsct")) {
+    } else if ((host === "analytics.twitter.com" || host === "analytics.x.com") && /^\/(?:1\/)?i\/adsctp?$/.test(path)) {
         provider = "X Pixel";
         id = query.get("txn_id");
-        name = query.get("event") || "Conversion";
+        name = query.get("event") || query.get("ev");
     } else if (host === "alb.reddit.com" && path === "/rp.gif") {
         provider = "Reddit Pixel";
         id = query.get("id");
         name = query.get("event");
+    } else if (host === "pixel-config.reddit.com" && /^\/pixels\/[^/]+\/config$/.test(path)) {
+        provider = "Reddit Pixel";
+        id = path.split("/")[2];
+        kind = "configuration";
     } else if (host === "analytics.tiktok.com" && (path === "/api/v2/pixel" || path.startsWith("/api/v2/pixel/"))) {
         provider = "TikTok Pixel";
         id = query.get("pixel_code") || query.get("id");
@@ -48,6 +55,7 @@ function parsePixelRequest(resource) {
         provider,
         id: id || null,
         name: name || null,
+        kind,
         time: Math.round(performance.timeOrigin + resource.startTime),
         parameters: [...new Set(query.keys())].sort(),
     };
@@ -66,6 +74,11 @@ function record(resources) {
         events.splice(0, events.length - 100);
         seen.clear();
     }
+    const count = new Set(events.map((event) => JSON.stringify([event.provider, event.id]))).size;
+    if (count !== lastPixelCount) {
+        lastPixelCount = count;
+        browser.runtime.sendMessage({ type: "pixelCount", count }).catch(() => {});
+    }
 }
 
 record(performance.getEntriesByType("resource"));
@@ -74,3 +87,4 @@ new PerformanceObserver((list) => record(list.getEntries())).observe({ type: "re
 browser.runtime.onMessage.addListener((message) => {
     if (message.type === "getEvents") return Promise.resolve(events);
 });
+})();

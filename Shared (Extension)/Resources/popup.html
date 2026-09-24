@@ -8,15 +8,24 @@
 </head>
 <body>
     <header>
-        <div class="eyebrow">SAFARI EXTENSION</div>
         <h1>Pixel Helper</h1>
-        <p id="site">Current tab</p>
+        <label class="theme-switch" title="Dark appearance">
+            <input id="theme-toggle" type="checkbox" role="switch" aria-label="Dark appearance">
+            <span aria-hidden="true"></span>
+        </label>
     </header>
+    <nav class="provider-tabs" aria-label="Pixel providers">
+        <button type="button" data-provider="Google tag" aria-label="Google" title="Google" aria-pressed="false" disabled><img class="brand-icon" src="images/provider-google.svg" alt=""></button>
+        <button type="button" data-provider="Meta Pixel" aria-label="Meta" title="Meta" aria-pressed="false" disabled><img class="brand-icon" src="images/provider-meta.svg" alt=""></button>
+        <button type="button" data-provider="TikTok Pixel" aria-label="TikTok" title="TikTok" aria-pressed="false" disabled><img class="brand-icon" src="images/provider-tiktok.svg" alt=""></button>
+        <button type="button" data-provider="Reddit Pixel" aria-label="Reddit" title="Reddit" aria-pressed="false" disabled><img class="brand-icon" src="images/provider-reddit.svg" alt=""></button>
+        <button type="button" data-provider="X Pixel" aria-label="X" title="X" aria-pressed="false" disabled><img class="brand-icon" src="images/provider-x.svg" alt=""></button>
+    </nav>
     <main>
-        <div class="summary"><span>Observed requests</span><strong id="count">–</strong></div>
-        <p id="status" role="status">Loading…</p>
-        <ol id="events" hidden></ol>
+        <p id="headline" role="status">Loading…</p>
+        <p id="hint" hidden>Select a provider to see its pixels.</p>
+        <div id="pixels" hidden></div>
     </main>
-    <footer>Request URLs only. POST bodies and delivery status are unavailable.</footer>
+    <footer>Observed request URLs only. Delivery status and POST bodies are unavailable.</footer>
 </body>
 </html>

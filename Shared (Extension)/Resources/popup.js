@@ -1,54 +1,96 @@
-const status = document.querySelector("#status");
-const list = document.querySelector("#events");
+const headline = document.querySelector("#headline");
+const hint = document.querySelector("#hint");
+const pixels = document.querySelector("#pixels");
+const themeToggle = document.querySelector("#theme-toggle");
+const providerButtons = [...document.querySelectorAll(".provider-tabs button")];
+let groups = [];
+let host = "";
+
+document.documentElement.dataset.theme = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+themeToggle.checked = document.documentElement.dataset.theme === "dark";
+themeToggle.setAttribute("aria-checked", String(themeToggle.checked));
+themeToggle.addEventListener("change", () => {
+    document.documentElement.dataset.theme = themeToggle.checked ? "dark" : "light";
+    localStorage.setItem("theme", document.documentElement.dataset.theme);
+    themeToggle.setAttribute("aria-checked", String(themeToggle.checked));
+});
+
+function groupEvents(events) {
+    const groups = new Map();
+    for (const event of events) {
+        const key = JSON.stringify([event.provider, event.id]);
+        if (!groups.has(key)) groups.set(key, { provider: event.provider, id: event.id, events: [] });
+        groups.get(key).events.push(event);
+    }
+    return [...groups.values()];
+}
+
+function showProvider(button) {
+    for (const item of providerButtons) item.setAttribute("aria-pressed", String(item === button));
+    pixels.replaceChildren();
+    pixels.hidden = false;
+    hint.hidden = true;
+    const selected = groups.filter((group) => group.provider === button.dataset.provider);
+    for (const group of selected) {
+        const card = document.createElement("section");
+        card.className = "pixel";
+        const provider = document.createElement("h2");
+        provider.className = "provider";
+        provider.textContent = group.provider;
+        const id = document.createElement("p");
+        id.className = "pixel-id";
+        id.textContent = `Pixel ID: ${group.id || "Unavailable from request URL"}`;
+        const observedEvents = group.events.filter((event) => event.kind !== "configuration");
+        const label = document.createElement("p");
+        label.className = "events-label";
+        label.textContent = observedEvents.length ? "Observed events" : "No pixel events observed";
+        card.append(provider, id, label);
+
+        for (const event of observedEvents.reverse()) {
+            const row = document.createElement("details");
+            const summary = document.createElement("summary");
+            const name = document.createElement("span");
+            name.className = "event-name";
+            name.textContent = event.name || "Event observed · details unavailable";
+            const time = document.createElement("time");
+            time.textContent = new Date(event.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+            summary.append(name, time);
+            const parameters = document.createElement("div");
+            parameters.className = "parameters";
+            parameters.textContent = event.parameters.length ? `URL parameter names: ${event.parameters.join(", ")}` : "No URL parameters available.";
+            row.append(summary, parameters);
+            card.append(row);
+        }
+        pixels.append(card);
+    }
+}
+
+for (const button of providerButtons) button.addEventListener("click", () => showProvider(button));
 
 async function load() {
     try {
         const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
         if (!tab?.id || !/^https?:/.test(tab.url || "")) {
-            status.textContent = "Open a website to inspect its pixel requests.";
+            headline.textContent = "Open a website to inspect its pixels.";
             return;
         }
 
-        document.querySelector("#site").textContent = new URL(tab.url).hostname;
+        host = new URL(tab.url).hostname;
         const events = await browser.tabs.sendMessage(tab.id, { type: "getEvents" });
-        document.querySelector("#count").textContent = events.length;
-        if (!events.length) {
-            status.textContent = "No supported pixel requests observed. Reload the page after granting website access.";
+        groups = groupEvents(events);
+        headline.textContent = `${groups.length} ${groups.length === 1 ? "pixel" : "pixels"} found on ${host}`;
+        for (const button of providerButtons) {
+            const detected = groups.some((group) => group.provider === button.dataset.provider);
+            button.disabled = !detected;
+            button.dataset.detected = String(detected);
+        }
+        if (!groups.length) {
+            headline.textContent += ". Reload the page after granting website access.";
             return;
         }
-
-        status.hidden = true;
-        list.hidden = false;
-        for (const event of [...events].reverse()) {
-            const item = document.createElement("li");
-            const heading = document.createElement("div");
-            heading.className = "event-heading";
-            const provider = document.createElement("strong");
-            provider.textContent = event.provider;
-            const time = document.createElement("time");
-            time.textContent = new Date(event.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
-            heading.append(provider, time);
-            const name = document.createElement("div");
-            name.className = "event-name";
-            name.textContent = event.name || "Event name unavailable";
-            const details = document.createElement("div");
-            details.className = "event-details";
-            details.textContent = `ID: ${event.id || "unavailable"}`;
-            item.append(heading, name, details);
-            if (event.parameters.length) {
-                const parameters = document.createElement("details");
-                const summary = document.createElement("summary");
-                summary.textContent = `${event.parameters.length} URL parameter names`;
-                const names = document.createElement("div");
-                names.className = "parameter-names";
-                names.textContent = event.parameters.join(", ");
-                parameters.append(summary, names);
-                item.append(parameters);
-            }
-            list.append(item);
-        }
+        hint.hidden = false;
     } catch {
-        status.textContent = "Allow this extension on the website, then reload the page.";
+        headline.textContent = "Allow this extension on the website, then reload the page.";
     }
 }
 
