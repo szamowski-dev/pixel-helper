@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="popup.css">
-    <script type="module" src="popup.js"></script>
+    <script src="popup.js" defer></script>
 </head>
 <body>
-    <strong>Hello World!</strong>
+    <header>
+        <div class="eyebrow">SAFARI EXTENSION</div>
+        <h1>Pixel Helper</h1>
+        <p id="site">Current tab</p>
+    </header>
+    <main>
+        <div class="summary"><span>Observed requests</span><strong id="count">–</strong></div>
+        <p id="status" role="status">Loading…</p>
+        <ol id="events" hidden></ol>
+    </main>
+    <footer>Request URLs only. POST bodies and delivery status are unavailable.</footer>
 </body>
 </html>
