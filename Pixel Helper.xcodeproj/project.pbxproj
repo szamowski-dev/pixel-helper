@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11000000000000000000001 /* AppIcon.icon in iOS Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000003 /* AppIcon.icon */; };
+		A11000000000000000000002 /* AppIcon.icon in macOS Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000003 /* AppIcon.icon */; };
 		0023C1B030657564000ED0A3 /* Pixel Helper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0023C1BA30657564000ED0A3 /* Pixel Helper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0023C1B930657564000ED0A3 /* Pixel Helper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -50,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A11000000000000000000003 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		0023C19230657564000ED0A3 /* Pixel Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0023C1A430657564000ED0A3 /* Pixel Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pixel Helper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +218,7 @@
 		0023C17530657563000ED0A3 = {
 			isa = PBXGroup;
 			children = (
+				A11000000000000000000003 /* AppIcon.icon */,
 				0023C17A30657564000ED0A3 /* Shared (App) */,
 				0023C18330657564000ED0A3 /* Shared (Extension) */,
 				0023C19430657564000ED0A3 /* iOS (App) */,
@@ -369,11 +373,13 @@
 		0023C19030657564000ED0A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				A11000000000000000000001 /* AppIcon.icon in iOS Resources */,
 			);
 		};
 		0023C1A230657564000ED0A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				A11000000000000000000002 /* AppIcon.icon in macOS Resources */,
 			);
 		};
 		0023C1AD30657564000ED0A3 /* Resources */ = {
