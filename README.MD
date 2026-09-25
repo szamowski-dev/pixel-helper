@@ -4,13 +4,15 @@ An open-source Safari extension that shows the tracking pixels detected on the c
 
 It currently recognizes Google tags, Meta Pixel, X Pixel, Reddit Pixel, and TikTok Pixel. Safari asks you to grant website access before the extension can inspect a page. Reload the page after granting access.
 
+![Pixel Helper in Safari showing a Google tag and conversion request details](docs/pixel-helper-safari.png)
+
 ## Build from source
 
 1. Open `Pixel Helper.xcodeproj` in Xcode.
 2. Select the `Pixel Helper (macOS)` scheme and your Mac as the destination, then build and run the app.
 3. Enable Pixel Helper in Safari → Settings → Extensions and allow access to the websites you want to inspect.
 
-The project also contains a `Pixel Helper (iOS)` scheme for iPhone and iPad. To distribute a build outside the App Store, use your own Apple signing and notarization setup where applicable. The source is free under the [MIT License](LICENSE).
+To distribute a build outside the App Store, use your own Apple signing and notarization setup where applicable. The source is free under the [MIT License](LICENSE).
 
 A ready-to-install Mac App Store version is planned for **US$5** for people who prefer not to build and sign the extension themselves. It is not available yet.
 
@@ -22,7 +24,7 @@ The toolbar badge counts distinct detected provider and pixel ID pairs on the cu
 
 ## App icon
 
-`AppIcon.icon` is the editable Icon Composer document for the macOS and iOS host apps. The app icon asset catalog also contains a PNG fallback. Safari's toolbar and extension icons are separate PNGs in `Shared (Extension)/Resources/images/`, generated from an Icon Composer export.
+`AppIcon.icon` is the editable Icon Composer document for the macOS host app. The app icon asset catalog also contains a PNG fallback. Safari's toolbar and extension icons are separate PNGs in `Shared (Extension)/Resources/images/`, generated from an Icon Composer export.
 
 ## Development
 
