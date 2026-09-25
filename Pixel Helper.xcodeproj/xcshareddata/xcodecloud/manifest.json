@@ -1,0 +1,9 @@
+{
+  "id" : "adc387a5-2eb1-4f48-82c0-aed24c0bcec3",
+  "targets" : [
+    {
+      "id" : "699e8d53-5997-41b0-8edb-bb3dc779cec3",
+      "name" : "Pixel Helper (macOS)"
+    }
+  ]
+}
