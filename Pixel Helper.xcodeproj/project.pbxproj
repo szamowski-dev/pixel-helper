@@ -7,20 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A11000000000000000000001 /* AppIcon.icon in iOS Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000003 /* AppIcon.icon */; };
-		A11000000000000000000002 /* AppIcon.icon in macOS Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000003 /* AppIcon.icon */; };
-		0023C1B030657564000ED0A3 /* Pixel Helper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0023C1BA30657564000ED0A3 /* Pixel Helper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0023C1B930657564000ED0A3 /* Pixel Helper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A11000000000000000000002 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = A11000000000000000000003 /* AppIcon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0023C1B130657564000ED0A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0023C17630657563000ED0A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0023C1AE30657564000ED0A3;
-			remoteInfo = "Pixel Helper Extension (iOS)";
-		};
 		0023C1BB30657564000ED0A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0023C17630657563000ED0A3 /* Project object */;
@@ -31,15 +22,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0023C1E230657564000ED0A3 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			dstPath = "";
-			dstSubfolder = PlugIns;
-			files = (
-				0023C1B030657564000ED0A3 /* Pixel Helper Extension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-		};
 		0023C1EC30657564000ED0A3 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			dstPath = "";
@@ -52,40 +34,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A11000000000000000000003 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
-		0023C19230657564000ED0A3 /* Pixel Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0023C1A430657564000ED0A3 /* Pixel Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pixel Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pixel Helper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0023C1B930657564000ED0A3 /* Pixel Helper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pixel Helper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11000000000000000000003 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0023C1DD30657564000ED0A3 /* Exceptions for "Shared (App)" folder in "Pixel Helper (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				Assets.xcassets,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = 0023C19130657564000ED0A3 /* Pixel Helper (iOS) */;
-		};
-		0023C1E130657564000ED0A3 /* Exceptions for "iOS (Extension)" folder in "Pixel Helper Extension (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 0023C1AE30657564000ED0A3 /* Pixel Helper Extension (iOS) */;
-		};
-		0023C1E630657564000ED0A3 /* Exceptions for "iOS (App)" folder in "Pixel Helper (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 0023C19130657564000ED0A3 /* Pixel Helper (iOS) */;
-		};
 		0023C1E730657564000ED0A3 /* Exceptions for "Shared (App)" folder in "Pixel Helper (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -104,21 +58,6 @@
 				Info.plist,
 			);
 			target = 0023C1B830657564000ED0A3 /* Pixel Helper Extension (macOS) */;
-		};
-		0023C1F030657564000ED0A3 /* Exceptions for "Shared (Extension)" folder in "Pixel Helper Extension (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/_locales,
-				Resources/background.js,
-				Resources/content.js,
-				Resources/images,
-				Resources/manifest.json,
-				Resources/popup.css,
-				Resources/popup.html,
-				Resources/popup.js,
-				SafariWebExtensionHandler.swift,
-			);
-			target = 0023C1AE30657564000ED0A3 /* Pixel Helper Extension (iOS) */;
 		};
 		0023C1F130657564000ED0A3 /* Exceptions for "Shared (Extension)" folder in "Pixel Helper Extension (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -141,7 +80,6 @@
 		0023C17A30657564000ED0A3 /* Shared (App) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0023C1DD30657564000ED0A3 /* Exceptions for "Shared (App)" folder in "Pixel Helper (iOS)" target */,
 				0023C1E730657564000ED0A3 /* Exceptions for "Shared (App)" folder in "Pixel Helper (macOS)" target */,
 			);
 			path = "Shared (App)";
@@ -150,7 +88,6 @@
 		0023C18330657564000ED0A3 /* Shared (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				0023C1F030657564000ED0A3 /* Exceptions for "Shared (Extension)" folder in "Pixel Helper Extension (iOS)" target */,
 				0023C1F130657564000ED0A3 /* Exceptions for "Shared (Extension)" folder in "Pixel Helper Extension (macOS)" target */,
 			);
 			explicitFolders = (
@@ -162,9 +99,6 @@
 		};
 		0023C19430657564000ED0A3 /* iOS (App) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				0023C1E630657564000ED0A3 /* Exceptions for "iOS (App)" folder in "Pixel Helper (iOS)" target */,
-			);
 			path = "iOS (App)";
 			sourceTree = "<group>";
 		};
@@ -175,9 +109,6 @@
 		};
 		0023C1B330657564000ED0A3 /* iOS (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				0023C1E130657564000ED0A3 /* Exceptions for "iOS (Extension)" folder in "Pixel Helper Extension (iOS)" target */,
-			);
 			path = "iOS (Extension)";
 			sourceTree = "<group>";
 		};
@@ -192,17 +123,7 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0023C18F30657564000ED0A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
 		0023C1A130657564000ED0A3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-			);
-		};
-		0023C1AC30657564000ED0A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
 			);
@@ -232,9 +153,7 @@
 		0023C19330657564000ED0A3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0023C19230657564000ED0A3 /* Pixel Helper.app */,
 				0023C1A430657564000ED0A3 /* Pixel Helper.app */,
-				0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */,
 				0023C1B930657564000ED0A3 /* Pixel Helper Extension.appex */,
 			);
 			name = Products;
@@ -243,28 +162,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0023C19130657564000ED0A3 /* Pixel Helper (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0023C1E330657564000ED0A3 /* Build configuration list for PBXNativeTarget "Pixel Helper (iOS)" */;
-			buildPhases = (
-				0023C18E30657564000ED0A3 /* Sources */,
-				0023C18F30657564000ED0A3 /* Frameworks */,
-				0023C19030657564000ED0A3 /* Resources */,
-				0023C1E230657564000ED0A3 /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0023C1B230657564000ED0A3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				0023C19430657564000ED0A3 /* iOS (App) */,
-			);
-			name = "Pixel Helper (iOS)";
-			productName = "Pixel Helper (iOS)";
-			productReference = 0023C19230657564000ED0A3 /* Pixel Helper.app */;
-			productType = "com.apple.product-type.application";
-		};
 		0023C1A330657564000ED0A3 /* Pixel Helper (macOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0023C1ED30657564000ED0A3 /* Build configuration list for PBXNativeTarget "Pixel Helper (macOS)" */;
@@ -286,24 +183,6 @@
 			productName = "Pixel Helper (macOS)";
 			productReference = 0023C1A430657564000ED0A3 /* Pixel Helper.app */;
 			productType = "com.apple.product-type.application";
-		};
-		0023C1AE30657564000ED0A3 /* Pixel Helper Extension (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0023C1DE30657564000ED0A3 /* Build configuration list for PBXNativeTarget "Pixel Helper Extension (iOS)" */;
-			buildPhases = (
-				0023C1AB30657564000ED0A3 /* Sources */,
-				0023C1AC30657564000ED0A3 /* Frameworks */,
-				0023C1AD30657564000ED0A3 /* Resources */,
-			);
-			buildRules = (
-			);
-			fileSystemSynchronizedGroups = (
-				0023C1B330657564000ED0A3 /* iOS (Extension) */,
-			);
-			name = "Pixel Helper Extension (iOS)";
-			productName = "Pixel Helper Extension (iOS)";
-			productReference = 0023C1AF30657564000ED0A3 /* Pixel Helper Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 		0023C1B830657564000ED0A3 /* Pixel Helper Extension (macOS) */ = {
 			isa = PBXNativeTarget;
@@ -333,13 +212,7 @@
 				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
-					0023C19130657564000ED0A3 = {
-						CreatedOnToolsVersion = 27.0;
-					};
 					0023C1A330657564000ED0A3 = {
-						CreatedOnToolsVersion = 27.0;
-					};
-					0023C1AE30657564000ED0A3 = {
 						CreatedOnToolsVersion = 27.0;
 					};
 					0023C1B830657564000ED0A3 = {
@@ -361,30 +234,17 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0023C19130657564000ED0A3 /* Pixel Helper (iOS) */,
 				0023C1A330657564000ED0A3 /* Pixel Helper (macOS) */,
-				0023C1AE30657564000ED0A3 /* Pixel Helper Extension (iOS) */,
 				0023C1B830657564000ED0A3 /* Pixel Helper Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0023C19030657564000ED0A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-				A11000000000000000000001 /* AppIcon.icon in iOS Resources */,
-			);
-		};
 		0023C1A230657564000ED0A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				A11000000000000000000002 /* AppIcon.icon in macOS Resources */,
-			);
-		};
-		0023C1AD30657564000ED0A3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
+				A11000000000000000000002 /* AppIcon.icon in Resources */,
 			);
 		};
 		0023C1B730657564000ED0A3 /* Resources */ = {
@@ -395,17 +255,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0023C18E30657564000ED0A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 		0023C1A030657564000ED0A3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
-		0023C1AB30657564000ED0A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -418,11 +268,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0023C1B230657564000ED0A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0023C1AE30657564000ED0A3 /* Pixel Helper Extension (iOS) */;
-			targetProxy = 0023C1B130657564000ED0A3 /* PBXContainerItemProxy */;
-		};
 		0023C1BC30657564000ED0A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0023C1B830657564000ED0A3 /* Pixel Helper Extension (macOS) */;
@@ -431,159 +276,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0023C1DF30657564000ED0A3 /* Debug configuration for PBXNativeTarget "Pixel Helper Extension (iOS)" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.szamowski.Pixel-Helper.Extension";
-				PRODUCT_NAME = "Pixel Helper Extension";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		0023C1E030657564000ED0A3 /* Release configuration for PBXNativeTarget "Pixel Helper Extension (iOS)" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.szamowski.Pixel-Helper.Extension";
-				PRODUCT_NAME = "Pixel Helper Extension";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		0023C1E430657564000ED0A3 /* Debug configuration for PBXNativeTarget "Pixel Helper (iOS)" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.szamowski.Pixel-Helper";
-				PRODUCT_NAME = "Pixel Helper";
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		0023C1E530657564000ED0A3 /* Release configuration for PBXNativeTarget "Pixel Helper (iOS)" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper";
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.szamowski.Pixel-Helper";
-				PRODUCT_NAME = "Pixel Helper";
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		0023C1E930657564000ED0A3 /* Debug configuration for PBXNativeTarget "Pixel Helper Extension (macOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKWYP7CT7C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -619,6 +317,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKWYP7CT7C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -654,14 +353,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKWYP7CT7C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,14 +396,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CKWYP7CT7C;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Pixel Helper";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -851,22 +556,6 @@
 			buildConfigurations = (
 				0023C1F230657564000ED0A3 /* Debug configuration for PBXProject "Pixel Helper" */,
 				0023C1F330657564000ED0A3 /* Release configuration for PBXProject "Pixel Helper" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		0023C1DE30657564000ED0A3 /* Build configuration list for PBXNativeTarget "Pixel Helper Extension (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0023C1DF30657564000ED0A3 /* Debug configuration for PBXNativeTarget "Pixel Helper Extension (iOS)" */,
-				0023C1E030657564000ED0A3 /* Release configuration for PBXNativeTarget "Pixel Helper Extension (iOS)" */,
-			);
-			defaultConfigurationName = Release;
-		};
-		0023C1E330657564000ED0A3 /* Build configuration list for PBXNativeTarget "Pixel Helper (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0023C1E430657564000ED0A3 /* Debug configuration for PBXNativeTarget "Pixel Helper (iOS)" */,
-				0023C1E530657564000ED0A3 /* Release configuration for PBXNativeTarget "Pixel Helper (iOS)" */,
 			);
 			defaultConfigurationName = Release;
 		};
