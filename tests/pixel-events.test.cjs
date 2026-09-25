@@ -34,13 +34,14 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname, "../Shared (Extension)/R
     assert.equal(events.length, 5);
     assert.deepEqual(Array.from(events, (event) => event.provider), ["Google tag", "Meta Pixel", "X Pixel", "Reddit Pixel", "TikTok Pixel"]);
     assert.equal(events[0].name, "page_view");
+    assert.equal(events[0].endpoint, "www.google-analytics.com/g/collect");
     assert.equal(events[1].id, "12345");
     assert.equal(events[2].id, null); // X sends this beacon's details in a body we cannot inspect.
     assert.equal(events[3].id, "a2_j1933bxzyyfr");
     assert.equal(events[3].kind, "configuration");
     assert.equal(events[4].name, null); // TikTok sends its event name in the POST body.
-    assert.ok(events[1].parameters.includes("cd[value]"));
-    assert.ok(!JSON.stringify(events).includes("private"));
+    assert.equal(events[1].parameters.find(([key]) => key === "cd[value]")[1], "99");
+    assert.equal(events[0].parameters.find(([key]) => key === "cid")[1], "private");
     assert.equal(badgeMessages.length, 1); // Buffered observer replay must not update the badge twice.
     assert.equal(badgeMessages[0].count, 5);
     observer({ getEntries: () => [{ name: "https://www.facebook.com/tr/?id=second&ev=PageView", startTime: 6 }] });
@@ -106,7 +107,14 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname, "../Shared (Extension)/R
     assert.equal(buttons[3].getAttribute("aria-pressed"), "true");
     buttons[0].listeners.click();
     assert.equal(pixels.children[0].children[0].textContent, "Google tag");
+    assert.equal(pixels.children[0].children[1].textContent, "Tag ID: G-123");
+    assert.equal(pixels.children[0].children[3].children[1].children[0].textContent, "Event details");
     assert.equal(buttons[3].getAttribute("aria-pressed"), "false");
+    popup.browser.tabs.sendMessage = async () => [events[0], { ...events[0], id: "G-OTHER" }];
+    await popup.load();
+    buttons[0].listeners.click();
+    assert.equal(pixels.children.length, 2);
+    assert.equal(pixels.children[1].children[1].textContent, "Tag ID: G-OTHER");
     toggle.checked = true;
     toggle.listeners.change();
     assert.equal(popup.document.documentElement.dataset.theme, "dark");
@@ -115,5 +123,11 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname, "../Shared (Extension)/R
     assert.equal(grouped.length, 2);
     assert.equal(grouped[0].events.length, 2);
     assert.equal(grouped[1].provider, "Meta Pixel");
+    popup.browser.tabs.sendMessage = async () => [];
+    await popup.load();
+    assert.equal(headline.textContent, "0 pixels found on horacal.app");
+    observer({ getEntries: () => [{ name: "https://region1.analytics.google.com/g/collect?tid=G-ANTYWEB&en=page_view", startTime: 7 }] });
+    assert.equal((await listener({ type: "getEvents" })).at(-1).id, "G-ANTYWEB");
+    assert.equal(badgeMessages.at(-1).count, 7);
     console.log("Pixel request parsing passed");
 })().catch((error) => { console.error(error); process.exitCode = 1; });

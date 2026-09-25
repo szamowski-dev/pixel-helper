@@ -19,7 +19,7 @@ function parsePixelRequest(resource) {
     let name;
     let kind = "event";
 
-    if ((host === "www.google-analytics.com" || host.endsWith(".google-analytics.com")) && ["/g/collect", "/collect", "/j/collect"].includes(path)) {
+    if ((host === "www.google-analytics.com" || host.endsWith(".google-analytics.com") || host === "analytics.google.com" || host.endsWith(".analytics.google.com")) && ["/g/collect", "/collect", "/j/collect"].includes(path)) {
         provider = "Google tag";
         id = query.get("tid");
         name = query.get("en") || query.get("t");
@@ -57,7 +57,8 @@ function parsePixelRequest(resource) {
         name: name || null,
         kind,
         time: Math.round(performance.timeOrigin + resource.startTime),
-        parameters: [...new Set(query.keys())].sort(),
+        endpoint: `${host}${path}`,
+        parameters: [...query.entries()],
     };
 }
 

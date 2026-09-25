@@ -37,6 +37,11 @@ summary { padding: 10px 0; cursor: pointer; font-size: 13px; }
 summary:focus-visible { outline: 2px solid #0a84ff; outline-offset: 2px; }
 .event-name { font-weight: 500; overflow-wrap: anywhere; }
 time { float: right; color: var(--secondary); font-size: 11px; white-space: nowrap; }
-.parameters { padding: 0 0 12px 14px; color: var(--secondary); font-size: 11px; line-height: 1.5; overflow-wrap: anywhere; }
+.event-details { padding: 2px 0 14px; font-size: 12px; }
+.event-details h3 { margin: 0 0 10px; font-size: 12px; font-weight: 600; }
+.event-details dl + h3 { margin-top: 18px; }
+.event-details dl { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 7px 10px; margin: 0; line-height: 1.4; }
+.event-details dt { color: var(--secondary); }
+.event-details dd { margin: 0; overflow-wrap: anywhere; }
 footer { padding: 12px 20px 15px; border-top: 1px solid var(--separator); color: var(--secondary); font-size: 11px; line-height: 1.4; }
 @media (prefers-reduced-motion: reduce) { body, .theme-switch span, .theme-switch span::before { transition: none; } }

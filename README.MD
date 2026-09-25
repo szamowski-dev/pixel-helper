@@ -16,7 +16,7 @@ A ready-to-install Mac App Store version is planned for **US$5** for people who 
 
 ## What the results mean
 
-Pixel Helper observes resource request URLs locally in the browser. It does not send browsing data to our servers. It shows URL parameter **names**, not their values. A detected configuration, such as Reddit's pixel config request, means the pixel is installed; it does not prove an event was sent. For beacons that put details in a POST body, such as X, the pixel ID and event name may be unavailable. The extension cannot confirm delivery or inspect server-side Conversion API events.
+Pixel Helper observes resource request URLs locally in the browser. It does not send browsing data to our servers. It shows URL parameter names and values from observed requests. A detected configuration, such as Reddit's pixel config request, means the pixel is installed; it does not prove an event was sent. For beacons that put details in a POST body, such as X, the pixel ID and event name may be unavailable. The extension cannot confirm delivery or inspect server-side Conversion API events.
 
 The toolbar badge counts distinct detected provider and pixel ID pairs on the current tab. It clears on a new page with no detected pixels.
 

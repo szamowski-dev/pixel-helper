@@ -39,7 +39,7 @@ function showProvider(button) {
         provider.textContent = group.provider;
         const id = document.createElement("p");
         id.className = "pixel-id";
-        id.textContent = `Pixel ID: ${group.id || "Unavailable from request URL"}`;
+        id.textContent = `${group.provider === "Google tag" ? "Tag ID" : "Pixel ID"}: ${group.id || "Unavailable from request URL"}`;
         const observedEvents = group.events.filter((event) => event.kind !== "configuration");
         const label = document.createElement("p");
         label.className = "events-label";
@@ -55,10 +55,35 @@ function showProvider(button) {
             const time = document.createElement("time");
             time.textContent = new Date(event.time).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
             summary.append(name, time);
-            const parameters = document.createElement("div");
-            parameters.className = "parameters";
-            parameters.textContent = event.parameters.length ? `URL parameter names: ${event.parameters.join(", ")}` : "No URL parameters available.";
-            row.append(summary, parameters);
+            const eventDetails = document.createElement("div");
+            eventDetails.className = "event-details";
+            const detailsHeading = document.createElement("h3");
+            detailsHeading.textContent = "Event details";
+            const detailsList = document.createElement("dl");
+            for (const [label, value] of [
+                ["Timestamp", new Date(event.time).toLocaleString()],
+                ["Request endpoint", event.endpoint],
+            ]) {
+                const term = document.createElement("dt");
+                term.textContent = label;
+                const description = document.createElement("dd");
+                description.textContent = value;
+                detailsList.append(term, description);
+            }
+            eventDetails.append(detailsHeading, detailsList);
+            const parametersHeading = document.createElement("h3");
+            parametersHeading.textContent = "Parameter details";
+            const parametersList = document.createElement("dl");
+            for (const [key, value] of event.parameters) {
+                const term = document.createElement("dt");
+                term.textContent = key;
+                const description = document.createElement("dd");
+                description.textContent = value || "(empty)";
+                parametersList.append(term, description);
+            }
+            if (!event.parameters.length) parametersList.textContent = "No URL parameters observed.";
+            eventDetails.append(parametersHeading, parametersList);
+            row.append(summary, eventDetails);
             card.append(row);
         }
         pixels.append(card);
@@ -84,10 +109,7 @@ async function load() {
             button.disabled = !detected;
             button.dataset.detected = String(detected);
         }
-        if (!groups.length) {
-            headline.textContent += ". Reload the page after granting website access.";
-            return;
-        }
+        if (!groups.length) return;
         hint.hidden = false;
     } catch {
         headline.textContent = "Allow this extension on the website, then reload the page.";
