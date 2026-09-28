@@ -46,6 +46,12 @@ h1 { max-width: 680px; margin-bottom: 20px; font-size: clamp(44px, 7vw, 76px); f
 .strip { display: flex; align-items: center; justify-content: space-between; gap: 28px; border-top: 1px solid var(--line); padding-block: 28px 72px; }
 .strip p { max-width: 590px; margin: 0; color: var(--muted); }
 .strip strong { color: var(--ink); }
+.creator-section { padding-bottom: 80px; text-align: center; }
+.creator-section > p { margin-bottom: 14px; color: var(--muted); }
+.creator-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 680px; margin-inline: auto; border-radius: 18px; background: #182920; padding: 32px; color: #f4fff5; text-align: left; }
+.creator-card h2 { margin-bottom: 4px; font-size: clamp(28px, 4vw, 38px); letter-spacing: -.045em; line-height: 1.15; }
+.creator-card p { margin-bottom: 24px; color: #c9dbce; }
+.creator-card img { width: clamp(96px, 22vw, 160px); height: auto; flex: none; border-radius: 24%; }
 .document { max-width: 760px; margin: 0 auto; padding: 58px 0 96px; }
 .document h1 { margin-bottom: 12px; font-size: clamp(40px, 6vw, 58px); }
 .document .lead { color: var(--muted); font-size: 18px; }
@@ -66,6 +72,8 @@ h1 { max-width: 680px; margin-bottom: 20px; font-size: clamp(44px, 7vw, 76px); f
 @media (max-width: 520px) {
   .site-header .wrap { align-items: flex-start; flex-direction: column; justify-content: center; gap: 8px; padding-block: 12px; }
   .site-nav { gap: 8px 16px; }
+  .creator-card { align-items: flex-start; flex-direction: column-reverse; padding: 24px; }
+  .creator-card img { width: 80px; }
   .document { padding-top: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
