@@ -28,7 +28,9 @@ a:focus-visible { outline: 3px solid #39975d; outline-offset: 4px; border-radius
 h1, h2, h3, p { margin-top: 0; }
 h1 { max-width: 680px; margin-bottom: 20px; font-size: clamp(44px, 7vw, 76px); font-weight: 760; letter-spacing: -.07em; line-height: 1.04; }
 .hero p:not(.eyebrow) { max-width: 525px; color: #c9dbce; font-size: clamp(17px, 2vw, 20px); }
-.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+.app-store-badge { display: inline-flex; }
+.app-store-badge img { display: block; }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid transparent; border-radius: 10px; padding: 10px 18px; background: var(--mint); color: #17321f; font-size: 14px; font-weight: 750; text-decoration: none; }
 .button:hover { background: #d2fbd9; }
 .button.secondary { border-color: #587161; background: transparent; color: #f4fff5; }

@@ -6,6 +6,10 @@ It currently recognizes Google tags, Meta Pixel, X Pixel, Reddit Pixel, and TikT
 
 ![Pixel Helper in Safari showing a Google tag and conversion request details](docs/pixel-helper-safari.png)
 
+## Download
+
+Pixel Helper is now available on the Mac App Store. [Download Pixel Helper](https://apps.apple.com/app/apple-store/id6815964698?pt=128724444&ct=Github&mt=8).
+
 ## Build from source
 
 1. Open `Pixel Helper.xcodeproj` in Xcode.
@@ -13,8 +17,6 @@ It currently recognizes Google tags, Meta Pixel, X Pixel, Reddit Pixel, and TikT
 3. Enable Pixel Helper in Safari → Settings → Extensions and allow access to the websites you want to inspect.
 
 To distribute a build outside the App Store, use your own Apple signing and notarization setup where applicable. The source is free under the [MIT License](LICENSE).
-
-A ready-to-install Mac App Store version is planned for **US$5** for people who prefer not to build and sign the extension themselves. It is not available yet.
 
 ## What the results mean
 
